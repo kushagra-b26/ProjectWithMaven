@@ -21,19 +21,33 @@ public class App {
 		// of connection but more a Threat safe object, for one
 		// project there is only a sessin-factory, used to make sessions and sessions
 		// will help us to save data
-
-		try {
-			SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
-			System.out.println(factory);
-		} catch (HibernateException e) {
-			System.out.println("HibernateException : " + e.getMessage());
-			System.out.println(e.getCause());
-		}
-
-		catch (Exception e) {
-			System.out.println("Exception : " + e.getMessage());
-			System.out.println(e.getCause());
-		}
+		
+		Configuration cfg = new Configuration();
+		cfg.configure("hibernate.cfg.xml");
+		SessionFactory factory = cfg.buildSessionFactory();
+	
+		//Creating Student
+		Student st=new Student();
+		st.setId(101);
+		st.setName("Kushagra");
+		st.setCity("Ghaziabad");
+		System.out.println(st);
+		
+		
+	//	System.out.println(factory);
+	//	System.out.println(factory.isClosed());
+		
+		
+		/*
+		 * try { SessionFactory factory = new
+		 * Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+		 * System.out.println(factory); } catch (HibernateException e) {
+		 * System.out.println("HibernateException : " + e.getMessage());
+		 * System.out.println(e.getCause()); }
+		 * 
+		 * catch (Exception e) { System.out.println("Exception : " + e.getMessage());
+		 * System.out.println(e.getCause()); }
+		 */
 
 		// yhn maine (SessionFactory factory = new SessionFactory krke iska object kyu
 		// nhi bnaya ?
